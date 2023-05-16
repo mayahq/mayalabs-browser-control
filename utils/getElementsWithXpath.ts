@@ -15,7 +15,7 @@ type Parent = {
     $x: (xpath: string) => Array<Record<string, unknown>> | []
 }
 
-async function getElementsWithXpath({ parent = null, page, xpath, timeout }: {parent: Record<string, unknown> | null;  page: Record<string, unknown>; xpath: string; timeout: number}): Promise<Array<Record<string, unknown>>> {
+async function getElementsWithXpath({ parent = undefined, page, xpath, timeout }: {parent?: Record<string, unknown>;  page?: Record<string, unknown>; xpath: string; timeout: number}): Promise<Array<Record<string, unknown>>> {
     // console.log('getElementsWithXpath', parent, page, page?.waitForXPath)
     if (!parent) {
         parent = page
