@@ -9,7 +9,7 @@ class ConnectBrowser extends Symbol {
     inputSchema: {},
     outputSchema: {},
     propertiesSchema: {
-      wsUrl: new TypedInput({defaultValue: "", type: "str", allowedTypes:["msg", "global", "str"], allowInput: true})
+      wsUrl: new TypedInput({defaultValue: "", type: "str", allowedTypes:["msg", "global", "str"], allowInput: true, label: "Websocket URL"})
     },
     editorProperties:{
       category: "Browser Control",
@@ -39,7 +39,7 @@ class ConnectBrowser extends Symbol {
   onMessage: Symbol['onMessage'] = async (_msg: Record<string, any>, _vals: Record<string, any>, _callback: OnMessageCallback) => {
     try {
       const browser = await puppeteer.connect({
-        browserWSEndpoint: _vals?.properties?.wsEndpoint,
+        browserWSEndpoint: _vals?.properties?.wsUrl,
       });
       _msg._connectionId = Date.now().toString(36) +
         Math.floor(Math.random() * 10000).toString(36);
