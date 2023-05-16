@@ -3,7 +3,7 @@ import type { Schema, SymbolDsl } from '../deps.ts'
 import { Runtime } from '../deps.ts'
 
 class OpenPage extends Symbol {
-    static type = 'open-page'
+    static type = 'open_page'
     static description = 'Open a page from URL in a connected browser window'
     static schema: Schema = {
         inputSchema: {},
@@ -42,7 +42,7 @@ class OpenPage extends Symbol {
             category: 'Browser Control',
             color: 'blue',
             icon: '',
-            paletteLabel: 'Open',
+            paletteLabel: 'Open Page',
         },
     }
     static isConfig = false

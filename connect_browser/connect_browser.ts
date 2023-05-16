@@ -3,7 +3,7 @@ import type {Schema, SymbolDsl} from "../deps.ts"
 import { Runtime } from "../deps.ts";
 
 class ConnectBrowser extends Symbol {
-  static type = "connect-browser";
+  static type = "connect_browser";
   static description = "Connect a browser instance to control it via a websocket url";
   static schema: Schema = {
     inputSchema: {},
@@ -15,7 +15,7 @@ class ConnectBrowser extends Symbol {
       category: "Browser Control",
       color: "blue",
       icon: "",
-      paletteLabel: "Connect"
+      paletteLabel: "Connect Browser"
     }
   };
   static isConfig = false;

@@ -6,13 +6,13 @@ import evaluateQuery from '../utils/webql.ts';
 class Scrape extends Symbol {
     static isConfig = false;
     static description = "Scrape information from a DOM element on providing xpath";
-    static type = "browser-scrape";
+    static type = "scrape";
     static schema: Schema = {
         editorProperties: {
             category: "Browser control",
             color: "blue",
             icon: "",
-            paletteLabel: "browser-scrape"
+            paletteLabel: "scrape"
         },
         propertiesSchema: {
             pageId: new TypedInput({ type: 'str', allowedTypes: ['msg', 'global', 'str'], defaultValue:'pageIds[0]', label: 'Page ID'}),

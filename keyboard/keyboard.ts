@@ -3,8 +3,8 @@ import type { Schema, SymbolDsl } from '../deps.ts'
 import { Runtime } from '../deps.ts'
 import getElementsWithXpath from '../utils/getElementsWithXpath.ts'
 
-class TypeContent extends Symbol {
-    static type = 'type-content'
+class Keyboard extends Symbol {
+    static type = 'keyboard'
     static description = 'Emulate keyboard typing in a selected xpath element'
     static schema: Schema = {
         inputSchema: {},
@@ -44,7 +44,7 @@ class TypeContent extends Symbol {
             category: 'Browser Control',
             color: 'blue',
             icon: '',
-            paletteLabel: 'Type',
+            paletteLabel: 'Keyboard',
         },
     }
     static isConfig = false
@@ -97,4 +97,4 @@ class TypeContent extends Symbol {
     }
 }
 
-export default TypeContent
+export default Keyboard
