@@ -77,7 +77,7 @@ class Keyboard extends Symbol {
         let elements: Array<Record<string, unknown>> = [];
         try {
             elements = await getElementsWithXpath({
-                parent: null,
+                parent: undefined,
                 xpath, timeout, page
             })
         } catch (e) {
@@ -91,7 +91,7 @@ class Keyboard extends Symbol {
             _msg.__isError = true
             _callback(_msg)
         }
-        //@ts-ignore
+        //@ts-ignore puppeteer function
         await elements[index].type(text, { delay })
         _callback(_msg)
     }
