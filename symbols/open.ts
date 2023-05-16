@@ -77,8 +77,8 @@ class OpenPage extends Symbol {
                 Math.floor(Math.random() * 10000).toString(36)
             _msg[`_browser::${_msg._connectionId}`] = browser
 
-            let width = _vals.viewportH || 1600
-            let height = _vals.viewportV || 900
+            const width = _vals.viewportH || 1600
+            const height = _vals.viewportV || 900
             await page.setViewport({ width, height })
 
             await page.goto(_vals.pageUrl, {
