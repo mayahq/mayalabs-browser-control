@@ -66,7 +66,7 @@ class OpenPage extends Symbol {
         _callback: OnMessageCallback,
     ) => {
         try {
-            const browser = _msg.get(`_browser::${_msg._connectionId}`)
+            const browser = _msg[`_browser::${_msg._connectionId}`]
 
             if (!browser) {
                 throw new Error('No connect node at flow beginning')
@@ -85,7 +85,7 @@ class OpenPage extends Symbol {
                 waitUntil: _vals.waitFor,
             })
 
-            const pages = _msg.get(`_pages::${_msg._connectionId}`)
+            const pages = _msg[`_pages::${_msg._connectionId}`]
             const pageId = pages.length
             const newPages = [...pages].concat(page)
             _msg[`_pages::${_msg._connectionId}`] = newPages

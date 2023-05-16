@@ -67,7 +67,7 @@ class Keyboard extends Symbol {
         _vals: Record<string, any>,
         _callback: OnMessageCallback,
     ) => {
-        const pages: Record<string, Record<string, unknown>> =_msg.get(`_pages::${_msg._connectionId}`)
+        const pages: Record<string, Record<string, unknown>> =_msg[`_pages::${_msg._connectionId}`]
         const pageId: number = _vals.pageId;
         const page: Record<string, unknown> = pages[pageId]
         const xpath:string = _vals.xpath;
