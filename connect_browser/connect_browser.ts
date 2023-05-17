@@ -39,14 +39,16 @@ class ConnectBrowser extends Symbol {
   onMessage: Symbol['onMessage'] = async (_msg: Record<string, any>, _vals: Record<string, any>, _callback: OnMessageCallback) => {
     try {
       const browser = await puppeteer.connect({
-        browserWSEndpoint: _vals?.properties?.wsUrl,
+        browserWSEndpoint: _vals.wsUrl,
       });
       _msg._connectionId = Date.now().toString(36) +
         Math.floor(Math.random() * 10000).toString(36);
       _msg[`_browser::${_msg._connectionId}`] = browser;
+      _msg[`_pages::${_msg._connectionId}`] = []
     } catch (e) {
       _msg.__error = e;
       _msg.__isError = true;
+      throw e
     }
     _callback(_msg);
   }

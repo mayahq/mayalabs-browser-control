@@ -15,7 +15,7 @@ type Parent = {
     $x: (xpath: string) => Array<Record<string, unknown>> | []
 }
 
-async function getElementsWithXpath(
+async function evaluateXpath(
     { parent = undefined, page, xpath, timeout }: {
         parent?: Record<string, unknown>
         page?: Record<string, unknown>
@@ -26,11 +26,11 @@ async function getElementsWithXpath(
     if (!parent) {
         parent = page
     }
-
     let elements
     try {
         //@ts-ignore
         elements = await parent?.$x(xpath)
+        return elements;
     } catch (e) {
         console.log('Error in evaluation:', e)
         const err = new Error('Invalid xpath')
@@ -39,22 +39,23 @@ async function getElementsWithXpath(
         throw err
     }
 
-    if (elements.length === 0) {
-        try {
-            //@ts-ignore
-            await parent.waitForXPath(xpath, { timeout })
-            //@ts-ignore
-            elements = await parent.$x(xpath)
-        } catch (e) {
-            console.log('xpath find err', e)
-            const err = new Error('No elements found for xpath')
-            //@ts-ignore
-            err['type'] = 'NO_ELEMENTS_FOUND'
-            throw err
-        }
-    }
+    // if (elements.length === 0) {
+    //     try {
+    //         //@ts-ignore
+    //         await parent.waitForXPath(xpath, { timeout })
+    //         //@ts-ignore
+    //         elements = await parent.$x(xpath)
+    //     } catch (e) {
+    //         console.log('xpath find err', e)
+    //         const err = new Error('No elements found for xpath')
+    //         //@ts-ignore
+    //         err['type'] = 'NO_ELEMENTS_FOUND'
+    //         throw err
+    //     }
+    // }
 
-    return elements
+    // // console.log('getElementsWithXpath elements', elements)
+    // return elements
 }
 
-export default getElementsWithXpath
+export default evaluateXpath

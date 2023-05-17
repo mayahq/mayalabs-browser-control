@@ -2,6 +2,12 @@ import { OnMessageCallback, Symbol, TypedInput } from '../deps.ts'
 import type { Schema, SymbolDsl } from '../deps.ts'
 import { Runtime } from '../deps.ts'
 
+const waitOptions: Array<string> = [
+    'networkidle0',
+    'networkidle2',
+    'load',
+    'domcontentloaded',
+]
 class OpenPage extends Symbol {
     static type = 'open_page'
     static description = 'Open a page from URL in a connected browser window'
@@ -16,12 +22,12 @@ class OpenPage extends Symbol {
                 allowInput: true,
                 label: 'URL',
             }),
-            waitFor: new TypedInput({
-                label: 'timeout',
-                type: 'num',
-                allowedTypes: ['num'],
+            waitUntil: new TypedInput({
+                label: 'waitUntil',
+                type: 'str',
+                allowedTypes: ['str'],
                 allowInput: true,
-                defaultValue: 5,
+                defaultValue: 'networkidle0',
             }),
             viewportV: new TypedInput({
                 label: 'Vertical Viewport',
@@ -73,8 +79,8 @@ class OpenPage extends Symbol {
             }
 
             const page = await browser.newPage()
-            _msg._connectionId = Date.now().toString(36) +
-                Math.floor(Math.random() * 10000).toString(36)
+            const pages = _msg[`_pages::${_msg._connectionId}`]
+            const pageId = pages.length
             _msg[`_browser::${_msg._connectionId}`] = browser
 
             const width = _vals.viewportH || 1600
@@ -82,17 +88,15 @@ class OpenPage extends Symbol {
             await page.setViewport({ width, height })
 
             await page.goto(_vals.pageUrl, {
-                waitUntil: _vals.waitFor,
+                waitUntil: _vals.waitUntil,
             })
-
-            const pages = _msg[`_pages::${_msg._connectionId}`]
-            const pageId = pages.length
             const newPages = [...pages].concat(page)
             _msg[`_pages::${_msg._connectionId}`] = newPages
             _msg.pageIds = [pageId]
         } catch (e) {
             _msg.__error = e
             _msg.__isError = true
+            throw e
         }
         _callback(_msg)
     }
