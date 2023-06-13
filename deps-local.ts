@@ -1,5 +1,15 @@
-export type { OnMessageCallback, SymbolDsl, PrimitiveTypes, ComponentTypes, Property, Schema } from "/Users/shubham/mayahq/pac-runtime/mod.ts";
-export { Symbol, TypedInput, exceptions } from "/Users/shubham/mayahq/pac-runtime/mod.ts"
-export {Runtime} from "/Users/shubham/mayahq/pac-runtime/src/runtime/runtime.ts"
+export type {
+  ComponentTypes,
+  OnMessageCallback,
+  PrimitiveTypes,
+  Property,
+  Schema,
+  SymbolDsl,
+} from "https://deno.land/x/mayalabs_runtime@0.0.10/mod.ts";
+export {
+  Symbol,
+  TypedInput,
+} from "https://deno.land/x/mayalabs_runtime@0.0.10/mod.ts";
+export type { TypedInputTypes } from "https://deno.land/x/mayalabs_runtime@0.0.10/mod.ts";
 
-export {default as puppeteer} from 'https://deno.land/x/puppeteer@16.2.0/mod.ts';
+export { default as puppeteer } from "https://deno.land/x/puppeteer@16.2.0/mod.ts";

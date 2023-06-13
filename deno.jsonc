@@ -1,0 +1,18 @@
+{
+	"tasks": {
+		"dev": "deno run --watch main.ts",
+		"test": "deno test --allow-all ./tests",
+		"gen-palette": "deno run --allow-read --allow-write genPalette.ts"
+	},
+	"fmt": {
+		"indentWidth": 4,
+		"singleQuote": true,
+		"semiColons": false,
+		"lineWidth": 120
+	},
+	"lint": {
+		"rules": {
+			"exclude": ["require-await", "no-explicit-any"]
+		}
+	}
+}

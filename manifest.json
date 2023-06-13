@@ -1,0 +1,12 @@
+{
+	"moduleName": "mayalabs-browser-control",
+	"repository": "https://github.com/mayahq/mayalabs-browser-control",
+	"symbols": {
+		"click": "./click/click.ts",
+		"connect_browser": "./connect_browser/connect_browser.ts",
+		"key": "./key/key.ts",
+		"open_page": "./open_page/open_page.ts",
+		"scrape": "./scrape/scrape.ts",
+		"type": "./type/type.ts"
+	}
+}

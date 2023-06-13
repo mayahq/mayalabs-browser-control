@@ -1,0 +1,422 @@
+[
+    {
+        "type": "gh:mayahq/mayalabs-browser-control/connect_browser",
+        "paletteLabel": "Connect Browser",
+        "inputs": [
+            {
+                "name": "pulse",
+                "type": "basepulse"
+            },
+            {
+                "name": "wsUrl",
+                "displayName": "Websocket URL",
+                "allowLink": true,
+                "allowedTypes": [
+                    "string",
+                    "pulse",
+                    "procedure"
+                ],
+                "defaultType": "string",
+                "defaultValue": ""
+            }
+        ],
+        "outputs": [
+            {
+                "name": "connectionId",
+                "displayName": "Connection ID",
+                "type": "eval",
+                "linkType": "eval"
+            },
+            {
+                "name": "pulse",
+                "displayName": "Pulse out",
+                "type": "pulse",
+                "linkType": "pulse"
+            }
+        ]
+    },
+    {
+        "type": "gh:mayahq/mayalabs-browser-control/click",
+        "paletteLabel": "Click",
+        "inputs": [
+            {
+                "name": "pulse",
+                "type": "basepulse"
+            },
+            {
+                "name": "connectionId",
+                "displayName": "Connection ID",
+                "allowLink": true,
+                "allowedTypes": [
+                    "pulse",
+                    "procedure",
+                    "string"
+                ],
+                "defaultType": "pulse"
+            },
+            {
+                "name": "pageId",
+                "displayName": "Page ID",
+                "allowLink": true,
+                "allowedTypes": [
+                    "string",
+                    "pulse",
+                    "procedure"
+                ],
+                "defaultType": "pulse"
+            },
+            {
+                "name": "xpath",
+                "displayName": "XPath",
+                "allowLink": true,
+                "allowedTypes": [
+                    "string",
+                    "pulse",
+                    "procedure"
+                ],
+                "defaultType": "string",
+                "defaultValue": ""
+            },
+            {
+                "name": "timeout",
+                "displayName": "Timeout",
+                "allowLink": true,
+                "allowedTypes": [
+                    "number",
+                    "pulse",
+                    "procedure"
+                ],
+                "defaultType": "number",
+                "defaultValue": 0
+            }
+        ],
+        "outputs": [
+            {
+                "name": "pageId",
+                "type": "eval",
+                "linkType": "eval"
+            },
+            {
+                "name": "connectionId",
+                "type": "eval",
+                "linkType": "eval"
+            },
+            {
+                "name": "pulse",
+                "displayName": "Pulse out",
+                "type": "pulse",
+                "linkType": "pulse"
+            }
+        ]
+    },
+    {
+        "type": "gh:mayahq/mayalabs-browser-control/scrape",
+        "paletteLabel": "scrape",
+        "inputs": [
+            {
+                "name": "pulse",
+                "type": "basepulse"
+            },
+            {
+                "name": "connectionId",
+                "displayName": "Connection ID",
+                "allowLink": true,
+                "allowedTypes": [
+                    "pulse",
+                    "procedure",
+                    "string"
+                ],
+                "defaultType": "pulse"
+            },
+            {
+                "name": "pageId",
+                "displayName": "Page ID",
+                "allowLink": true,
+                "allowedTypes": [
+                    "string",
+                    "pulse",
+                    "procedure"
+                ],
+                "defaultType": "pulse"
+            },
+            {
+                "name": "query",
+                "displayName": "Query",
+                "allowLink": true,
+                "allowedTypes": [
+                    "pulse",
+                    "procedure",
+                    "json"
+                ],
+                "defaultType": "json",
+                "defaultValue": {}
+            },
+            {
+                "name": "timeout",
+                "displayName": "Timeout",
+                "allowLink": true,
+                "allowedTypes": [
+                    "number",
+                    "pulse",
+                    "procedure"
+                ],
+                "defaultType": "number",
+                "defaultValue": 0
+            }
+        ],
+        "outputs": [
+            {
+                "name": "result",
+                "type": "eval",
+                "linkType": "eval"
+            },
+            {
+                "name": "pageId",
+                "type": "eval",
+                "linkType": "eval"
+            },
+            {
+                "name": "connectionId",
+                "type": "eval",
+                "linkType": "eval"
+            },
+            {
+                "name": "pulse",
+                "displayName": "Pulse out",
+                "type": "pulse",
+                "linkType": "pulse"
+            }
+        ]
+    },
+    {
+        "type": "gh:mayahq/mayalabs-browser-control/key",
+        "paletteLabel": "Keyboard Action",
+        "inputs": [
+            {
+                "name": "pulse",
+                "type": "basepulse"
+            },
+            {
+                "name": "connectionId",
+                "displayName": "Connection ID",
+                "allowLink": true,
+                "allowedTypes": [
+                    "pulse",
+                    "procedure",
+                    "string"
+                ],
+                "defaultType": "pulse"
+            },
+            {
+                "name": "pageId",
+                "displayName": "Page ID",
+                "allowLink": true,
+                "allowedTypes": [
+                    "string",
+                    "pulse",
+                    "procedure"
+                ],
+                "defaultType": "pulse"
+            },
+            {
+                "name": "action",
+                "displayName": "Action",
+                "choices": [
+                    "KeyPress",
+                    "KeyDown",
+                    "KeyUp"
+                ],
+                "allowLink": true,
+                "allowedTypes": [
+                    "string",
+                    "pulse",
+                    "procedure"
+                ],
+                "defaultType": "string",
+                "defaultValue": ""
+            },
+            {
+                "name": "key",
+                "displayName": "Key Code",
+                "allowLink": true,
+                "allowedTypes": [
+                    "string",
+                    "pulse",
+                    "procedure"
+                ],
+                "defaultType": "string",
+                "defaultValue": ""
+            }
+        ],
+        "outputs": [
+            {
+                "name": "pageId",
+                "type": "eval",
+                "linkType": "eval"
+            },
+            {
+                "name": "connectionId",
+                "type": "eval",
+                "linkType": "eval"
+            },
+            {
+                "name": "pulse",
+                "displayName": "Pulse out",
+                "type": "pulse",
+                "linkType": "pulse"
+            }
+        ]
+    },
+    {
+        "type": "gh:mayahq/mayalabs-browser-control/type",
+        "paletteLabel": "Type",
+        "inputs": [
+            {
+                "name": "pulse",
+                "type": "basepulse"
+            },
+            {
+                "name": "connectionId",
+                "displayName": "Connection ID",
+                "allowLink": true,
+                "allowedTypes": [
+                    "pulse",
+                    "procedure",
+                    "string"
+                ],
+                "defaultType": "pulse"
+            },
+            {
+                "name": "pageId",
+                "displayName": "Page ID",
+                "allowLink": true,
+                "allowedTypes": [
+                    "string",
+                    "pulse",
+                    "procedure"
+                ],
+                "defaultType": "pulse"
+            },
+            {
+                "name": "xpath",
+                "displayName": "XPath",
+                "allowLink": true,
+                "allowedTypes": [
+                    "string",
+                    "pulse",
+                    "procedure"
+                ],
+                "defaultType": "string",
+                "defaultValue": ""
+            },
+            {
+                "name": "timeout",
+                "displayName": "Timeout",
+                "allowLink": true,
+                "allowedTypes": [
+                    "number",
+                    "pulse",
+                    "procedure"
+                ],
+                "defaultType": "number",
+                "defaultValue": 0
+            },
+            {
+                "name": "content",
+                "displayName": "Content",
+                "allowLink": true,
+                "allowedTypes": [
+                    "string",
+                    "pulse",
+                    "procedure"
+                ],
+                "defaultType": "string",
+                "defaultValue": ""
+            }
+        ],
+        "outputs": [
+            {
+                "name": "pageId",
+                "type": "eval",
+                "linkType": "eval"
+            },
+            {
+                "name": "connectionId",
+                "type": "eval",
+                "linkType": "eval"
+            },
+            {
+                "name": "pulse",
+                "displayName": "Pulse out",
+                "type": "pulse",
+                "linkType": "pulse"
+            }
+        ]
+    },
+    {
+        "type": "gh:mayahq/mayalabs-browser-control/open_page",
+        "paletteLabel": "Open Page",
+        "inputs": [
+            {
+                "name": "pulse",
+                "type": "basepulse"
+            },
+            {
+                "name": "connectionId",
+                "displayName": "Connection ID",
+                "allowLink": true,
+                "allowedTypes": [
+                    "pulse",
+                    "procedure",
+                    "string"
+                ],
+                "defaultType": "pulse"
+            },
+            {
+                "name": "pageUrl",
+                "displayName": "URL",
+                "allowLink": true,
+                "allowedTypes": [
+                    "pulse",
+                    "procedure",
+                    "string"
+                ],
+                "defaultType": "string",
+                "defaultValue": ""
+            },
+            {
+                "name": "waitUntil",
+                "choices": [
+                    "networkidle0",
+                    "networkidle2",
+                    "load",
+                    "domcontentloaded"
+                ],
+                "allowLink": false,
+                "allowedTypes": [
+                    "string"
+                ],
+                "defaultType": "string",
+                "defaultValue": ""
+            }
+        ],
+        "outputs": [
+            {
+                "name": "pageId",
+                "type": "eval",
+                "linkType": "eval"
+            },
+            {
+                "name": "connectionId",
+                "type": "eval",
+                "linkType": "eval"
+            },
+            {
+                "name": "pulse",
+                "displayName": "Pulse out",
+                "type": "pulse",
+                "linkType": "pulse"
+            }
+        ]
+    }
+]
