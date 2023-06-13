@@ -1,6 +1,5 @@
 import { Schema, Symbol } from '../../deps.ts'
 import getElementsWithXpath from '../../utils/getElementsWithXpath.ts'
-import evaluateQuery from '../../utils/webql.ts'
 
 class Scrape extends Symbol {
     static isConfig = false

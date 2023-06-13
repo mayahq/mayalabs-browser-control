@@ -1,4 +1,4 @@
-import { puppeteer, Schema, Symbol, TypedInput, TypedInputTypes } from '../../deps.ts'
+import { puppeteer, Schema, Symbol } from '../../deps.ts'
 import { getSmallRandomId } from '../../utils/misc.ts'
 
 class ConnectBrowser extends Symbol {

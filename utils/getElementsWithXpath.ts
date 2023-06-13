@@ -29,26 +29,26 @@ async function getElementsWithXpath(
 
     let elements
     try {
-        //@ts-ignore
+        // @ts-ignore huh
         elements = await parent?.$x(xpath)
     } catch (e) {
         console.log('Error in evaluation:', e)
         const err = new Error('Invalid xpath')
-        //@ts-ignore
+        // @ts-ignore huh
         err!['type'] = 'INVALID_XPATH'
         throw err
     }
 
     if (elements.length === 0) {
         try {
-            //@ts-ignore
+            // @ts-ignore comment
             await parent.waitForXPath(xpath, { timeout })
-            //@ts-ignore
+            // @ts-ignore comment
             elements = await parent.$x(xpath)
         } catch (e) {
             console.log('xpath find err', e)
             const err = new Error('No elements found for xpath')
-            //@ts-ignore
+            // @ts-ignore comment
             err['type'] = 'NO_ELEMENTS_FOUND'
             throw err
         }
