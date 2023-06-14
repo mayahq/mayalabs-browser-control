@@ -2,7 +2,7 @@
 	"tasks": {
 		"dev": "deno run --watch main.ts",
 		"test": "deno test --allow-all ./tests",
-		"gen-palette": "deno run --allow-read --allow-write genPalette.ts"
+		"gen-palette": "deno run --allow-all genPalette.ts"
 	},
 	"fmt": {
 		"indentWidth": 4,

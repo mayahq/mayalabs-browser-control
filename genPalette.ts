@@ -24,7 +24,6 @@ function getFirstPrimitive(allowedTypes: string[]) {
 }
 
 function getProcedureDefFromClass(procClass: any, dirname: string) {
-    console.log(procClass.schema.editorProperties)
     const inputSchema = procClass.schema.inputSchema
     const inputs: any[] = [
         { name: 'pulse', type: 'basepulse' },
@@ -91,10 +90,8 @@ async function getPalette() {
             continue
         }
 
-        // console.log(entry.name, entry.path)
         const procedureClassPath = stdpath.join(entry.path, `${entry.name}.ts`)
         const procClass = await import(procedureClassPath)
-        // console.log(procClass)
 
         const procDef = getProcedureDefFromClass(procClass.default, entry.name)
         Palette.push(procDef)
@@ -104,7 +101,6 @@ async function getPalette() {
 }
 
 const result = await getPalette()
-// console.log('result', result)
 Deno.writeTextFileSync(
     stdpath.join(basePath, 'palette.json'),
     JSON.stringify(result, null, 4),

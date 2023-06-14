@@ -87,7 +87,7 @@ class Type extends Symbol {
             })
         }
         //@ts-ignore puppeteer function
-        await elements[0].type(text, { delay })
+        await elements[0].type(text)
 
         callback({
             connectionId: vals.connectionId,
